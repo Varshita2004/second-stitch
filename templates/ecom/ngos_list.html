@@ -1,0 +1,76 @@
+{% extends 'ecom/customer_base.html' %}
+{% load static %}
+{% block content %}
+<style>
+    
+
+    h1 {
+        font-weight: 700;
+        text-align: center;
+        margin: 40px 0;
+        color: #222;
+    }
+
+    .ngo-list .card {
+        background: #fff;
+        border: none;
+        border-radius: 15px;
+        transition: all 0.3s ease-in-out;
+        margin-bottom: 30px;
+    }
+
+    .ngo-list .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .card-title {
+        font-size: 1.4rem;
+        font-weight: 600;
+        color: #222;
+    }
+
+    .card-text {
+        color: #555;
+        font-size: 0.95rem;
+    }
+
+    .btn-primary {
+        background-color: #ff7d1a;
+        border-color: #ff7d1a;
+        font-weight: 600;
+        border-radius: 8px;
+    }
+
+    .btn-primary:hover {
+        background-color: #e66a10;
+        border-color: #e66a10;
+    }
+
+    .container {
+        padding-bottom: 60px;
+    }
+</style>
+
+<div class="container">
+    <h1>Select an NGO to Donate Clothes</h1>
+    <div class="row ngo-list">
+        {% for ngo in ngos %}
+        <div class="col-md-6">
+            <div class="card shadow-sm p-4">
+                <div class="card-body">
+                    <h5 class="card-title">{{ ngo.name }}</h5>
+                    <p class="card-text">{{ ngo.description }}</p>
+                    <a href="{% url 'donate_clothes' ngo.id %}" class="btn btn-primary">Donate Now</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<!-- Bootstrap JS and dependencies -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+{% endblock content %}

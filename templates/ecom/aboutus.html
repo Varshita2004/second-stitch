@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Simple E-commerce</title>
+  <style media="screen">
+    .footer{
+      position: fixed;
+    }
+  </style>
+</head>
+
+<body style="background-color:#f7f7f7;">
+  {%if request.user.is_authenticated%}
+    {% include "ecom/customer_navbar.html" %}
+  {%else%}
+    {% include "ecom/navbar.html" %}
+  {%endif%}
+  <br><br><br>
+<h3 style="text-align:center;">"We believe that great style never goes out of fashion, which is why we’re passionate about giving pre-loved clothes a second life. At Second Stitch, you can explore a carefully curated collection of high-quality, second-hand clothing for all tastes and styles—without the hefty price tag or the environmental impact of buying new.
+
+  Our mission is simple: Reduce waste. Promote sustainability. Help you look amazing!
+  
+  By choosing second-hand fashion, you’re not just refreshing your wardrobe, but also making an eco-conscious decision that supports a greener future. Whether you're into vintage treasures, modern essentials, or unique finds, we’ve got something for everyone.
+  
+  Shop sustainably, style effortlessly, and join a growing community of fashion-forward individuals who care about the planet and their wardrobe." </h3>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+  {% include "ecom/footer.html" %}
+</body>
+<!--
+developed By : sumit kumar
+-->
+
+</html>
